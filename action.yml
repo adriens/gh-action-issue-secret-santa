@@ -1,0 +1,24 @@
+name: 'Create Secret Santa Issue'
+description: 'Generates a list of contributors and creates a Secret Santa issue on the repository.'
+author: 'Gemini'
+
+inputs:
+  issue-title:
+    description: 'The title of the GitHub issue. Use {YEAR} as a placeholder for the current year.'
+    required: false
+    default: '🎅 Secret Santa {YEAR}'
+  deadline:
+    description: 'The deadline for signing up.'
+    required: false
+    default: 'December 5th'
+  budget:
+    description: 'The suggested budget for the gift.'
+    required: false
+    default: '20€'
+  github-token:
+    description: 'The GITHUB_TOKEN to create the issue.'
+    required: true
+
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
